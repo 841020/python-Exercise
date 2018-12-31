@@ -1,18 +1,13 @@
 def bubblesort(a):
     b=sorted(a)
-    if a==b:
-        print('Array is sorted in 0 swaps.')
-        print('First Element: '+str(a[0]))
-        print('Last Element: '+str(a[-1]))
-    else:
-        counter=0
-        while a!=b:
-            for i in range(1,len(a)):
-                if a[i]<a[i-1]:
-                    (a[i],a[i-1])=(a[i-1],a[i])
-                    counter+=1
-                elif a==b:
-                    break
-        print('Array is sorted in '+str(counter)+' swaps.')
-        print('First Element: '+str(a[0]))
-        print('Last Element: '+str(a[-1]))
+    counter=0
+    for i in range(len(a)-1):
+        for j in range(len(a)-1,i,-1):
+            if a[j]<a[j-1]:
+                (a[j],a[j-1])=(a[j-1],a[j])
+                counter+=1
+            elif a==b:
+                break
+    print('Array is sorted in '+str(counter)+' swaps.')
+    print('First Element: '+str(a[0]))
+    print('Last Element: '+str(a[-1]))
