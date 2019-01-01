@@ -12,6 +12,7 @@ def bubblesort1(a):
     print('Array is sorted in '+str(counter)+' swaps.')
     print('First Element: '+str(a[0]))
     print('Last Element: '+str(a[-1]))
+
 #Move the largest number to the end 
 def bubblesort2(a):
     b=sorted(a)
