@@ -1,4 +1,4 @@
-#No iteration, only one processing
+#only Partition
 def quickSort(arr):
     k=[]
     kr=[]
