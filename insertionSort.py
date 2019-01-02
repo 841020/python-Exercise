@@ -1,3 +1,4 @@
+#The most important thing about insert sorting is to build ordered arrays.
 def xx(y):
     for i in arr:
         print(i,end=' ')
