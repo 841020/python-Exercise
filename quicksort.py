@@ -1,4 +1,6 @@
-#only Partition
+#The most important thing about quicksort is Partition.
+#quicksort is unstable,Because at the time of Partition, the same size as the benchmark can go to either side.
+#this is only Partition
 def quickSort(arr):
     k=[]
     kr=[]
