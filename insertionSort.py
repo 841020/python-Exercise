@@ -29,7 +29,6 @@ def insertionSort2(n, arr):
 #By going to
 def insertionsort3(n,arr):
     for i in range(1,n):
-        x=arr[i]
         for j in range(i):
             if arr[j]>x:
                 (arr[i],arr[j])=(arr[j],arr[i])
