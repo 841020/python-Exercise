@@ -26,3 +26,16 @@ def insertionSort2(n, arr):
                 break
         xx(arr)
         print('') 
+
+def insertionsort3(n,arr):
+    x=0
+    y=0
+    for i in range(1,n):
+        x=arr[i]
+        for j in range(i):
+            if j>=0 and arr[j]>x:
+                (arr[i],arr[j])=(arr[j],arr[i])
+                x+=1
+        y+=x
+        
+    return arr 
