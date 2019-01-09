@@ -2,7 +2,7 @@
 def xx(y):
     for i in arr:
         print(i,end=' ')
-
+#From back to front
 def insertionSort1(n, arr):
     for i in range(1,n):
         x=arr[i]
@@ -13,7 +13,7 @@ def insertionSort1(n, arr):
         arr[j+1]=x
         xx(arr)
         print('')
-        
+#From back to front        
 def insertionSort2(n, arr):
     if n==1: 
         xx(arr)
@@ -26,7 +26,7 @@ def insertionSort2(n, arr):
                 break
         xx(arr)
         print('') 
-
+#By going to
 def insertionsort3(n,arr):
     for i in range(1,n):
         x=arr[i]
