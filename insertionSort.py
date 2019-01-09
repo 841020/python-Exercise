@@ -21,8 +21,6 @@ def insertionsort(n,arr):
     for i in range(1,n):
         x=arr[i]
         for j in range(i):
-            if j>=0 and arr[j]>x:
+            if arr[j]>x:
                 (arr[i],arr[j])=(arr[j],arr[i])
-
-
     return arr 
