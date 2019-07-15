@@ -1,6 +1,5 @@
 # Move the smallest number to the front
 def bubblesort1(a):
-    b = sorted(a)
     counter = 0
     for i in range(len(a)-1):
         for j in range(len(a)-1, i, -1):
@@ -16,7 +15,6 @@ def bubblesort1(a):
 
 
 def bubblesort2(a):
-    b = sorted(a)
     counter = 0
     for i in range(len(a)-1):
         for j in range(1, len(a)-i):
