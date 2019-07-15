@@ -7,8 +7,7 @@ def bubblesort1(a):
             if a[j] < a[j-1]:
                 (a[j], a[j-1]) = (a[j-1], a[j])
                 counter += 1
-            elif a == b:
-                break
+   
     print('Array is sorted in '+str(counter)+' swaps.')
     print('First Element: '+str(a[0]))
     print('Last Element: '+str(a[-1]))
@@ -24,8 +23,7 @@ def bubblesort2(a):
             if a[j] < a[j-1]:
                 (a[j], a[j-1]) = (a[j-1], a[j])
                 counter += 1
-            elif a == b:
-                break
+          
     print('Array is sorted in '+str(counter)+' swaps.')
     print('First Element: '+str(a[0]))
     print('Last Element: '+str(a[-1]))
