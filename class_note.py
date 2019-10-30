@@ -1,3 +1,10 @@
+類別就像分類
+class 獅子(貓科動物):
+    def __init__(self):
+        #四隻腳
+        self.legs = 4
+
+
 class foo:
     def bar(self):
         print(123)
