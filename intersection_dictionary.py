@@ -1,5 +1,7 @@
-'''if your want list/set and dictionary's key get the intersection 
-    and make intersection to a new dictionary
+'''
+    if you want change dict's key or 
+    you only want some key-value pairs 
+    this factory can help
 '''
 from operator import itemgetter
 
