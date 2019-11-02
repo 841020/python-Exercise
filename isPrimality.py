@@ -16,3 +16,11 @@ def fermat(args):
     print('this is primality')
 num = input()
 fermat(nums)
+
+from random import sample
+# fermat's little theorem
+def fermat(args):
+    for i in sample(range(2, args),3):
+        if (i**args)%args != i:
+            print('this is not Primality')
+isPrimal(int(input('input')))
