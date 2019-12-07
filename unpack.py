@@ -1,32 +1,32 @@
-#args &kwargs test
+#args & kwargs test
 def foo(*args):
-    print(args)
-
-def bar(**kwargs):
-    print(kwargs)
+    print(args, 'id:', id(args))
 
 foo(1,2,3,4,5)
-foo(*[1,2,3,4,5])
-foo(*(1,2,3,4,5))
-foo(*{1,2,3,4,5})
+num = range(1,6)
+print('id:', id(num))
+foo(*num)
+foo(*list(num))
+foo(*tuple(num))
+foo(*set(num))
+foo(*zip(num, range(5)))
+
+dt = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+print('id:', id(dt))
+foo(*dt.items())
+foo(*dt.keys())
+foo(*dt.values())
+
+def bar(**kwargs):
+    print(kwargs, 'id:', id(kwargs))
 
 bar(a=1, b=2, c=3, d=4, e=5)
-bar(**{'1':2,'2':3})
+bar(**dt)
+bar(**dict(a=1, b=2, c=3, d=4, e=5))
 
-def foo2(c,b,a):
-    print('a',a)
-    print('b',b)
-    print('c',c)
-c={'a':1,'b':2,'c':3}
-foo2(**c)
-
-def foo3(a,b,c):
-    print('a',a)
-    print('b',b)
-    print('c',c)
-c={'b':2,'c':3,'a':1}
-foo3(**c)
-
-d=(1,2,3)
-foo2(*d)
-foo3(*d)
+a=['1', '2', '3']
+b=[4,5,6]
+num = zip(a,b)
+dt = dict(num)
+print(dt, id(dt))
+bar(**dt)
