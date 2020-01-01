@@ -45,3 +45,6 @@ color = {'桃','心','梅','磚'}
 number = {'A','2','3','4','5','6','7','8','9','10','J','Q','K'}
 poke = {i+j for i in color for j in number}
 print(poke)
+#4
+a=[(i,j,k) for i in range(1, 11) for j in range(1,11) for k in range(1,11) if (i**2)+(j**2)==k**2 and (i+j+k)== 24]
+print(a)
