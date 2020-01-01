@@ -39,3 +39,9 @@ def fn(n):
     return fn(n-1) +fn(n-2)
 n=input()
 print(fn(int(n)))
+
+#撲克牌洗牌
+color = {'桃','心','梅','磚'}
+number = {'A','2','3','4','5','6','7','8','9','10','J','Q','K'}
+poke = {i+j for i in color for j in number}
+print(poke)
