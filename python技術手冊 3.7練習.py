@@ -48,3 +48,12 @@ print(poke)
 #4
 a=[(i,j,k) for i in range(1, 11) for j in range(1,11) for k in range(1,11) if (i**2)+(j**2)==k**2 and (i+j+k)== 24]
 print(a)
+
+#第六章
+import random
+
+num=str(random.randint(0,9))
+n=input('guess a number')
+while n!=num:
+  n=input('guess a number')
+print('猜中了')
