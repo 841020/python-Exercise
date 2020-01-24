@@ -57,3 +57,54 @@ n=input('guess a number')
 while n!=num:
   n=input('guess a number')
 print('猜中了')
+
+from functools import total_ordering
+
+@total_ordering
+class Rational:
+    def __init__(self, numer:int, denom: int) -> None:
+        self.numer = numer
+        self.denom = denom
+
+    def __add__(self, that):
+        return Rational(
+            self.numer * that.denom + that.numer * self.denom,
+            self.denom * that.denom
+        )
+
+    def __sub__(self, that):
+        return Rational(
+            self.numer * that.denom - that.numer * self.denom,
+            self.denom * that.denom
+        )
+
+    def __mul__(self, that):
+        return Rational(
+            self.numer * that.numer,
+            self.denom * that.denom
+        )
+
+    def __truediv__(self, that):
+        return Rational(
+            self.numer * that.denom,
+            self.denom * that.numer
+        )
+
+    def __str__(self):
+        return f'{self.numer}/{self.denom}'
+
+    def __repr__(self): 
+        return f'Rational({self.numer}, {self.denom})'
+    def __eq__(self, that):
+      return self.numer/self.denom == that.numer/that.denom
+    def __gt__(self, that):
+      return self.numer/self.denom > that.numer/that.denom
+s1=Rational(2,5)
+s2=Rational(1,5)
+
+print(s1>s2)
+print(s1>=s2)
+print(s2<s1)
+print(s2<=s1)
+print(s1==s2)
+print(s1!=s2)
