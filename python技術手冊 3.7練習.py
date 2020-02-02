@@ -58,6 +58,7 @@ while n!=num:
   n=input('guess a number')
 print('猜中了')
 
+#Implement rich comparison
 from functools import total_ordering
 
 @total_ordering
@@ -110,6 +111,8 @@ print(s1==s2)
 print(s1!=s2)
 
 #第七章練習
+
+#customize exception
 class Account:
     def __init__(self, name: str, number: str, balance: float) -> None:
         self.name = name
@@ -148,3 +151,16 @@ a=Account('mike', '123',1000)
 a.withdraw(2000)
 a.withdraw(-2000)
 a.deposit(-100)
+
+#Implement context manager
+class Suppress:
+  def __init__(self, ex_type):
+    self.ex_type = ex_type
+  def __enter__(self):
+    yield
+  def __exit__(self, exc_type,exc_value, traceback):
+    if exc_type is self.ex_type:
+      return True
+
+with Suppress(ZeroDivisionError):
+  a=9/0
