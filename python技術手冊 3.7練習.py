@@ -108,3 +108,43 @@ print(s2<s1)
 print(s2<=s1)
 print(s1==s2)
 print(s1!=s2)
+
+#第七章練習
+class Account:
+    def __init__(self, name: str, number: str, balance: float) -> None:
+        self.name = name
+        self.number = number
+        self.balance = balance
+    
+    def amount_check(self, amount: float):
+      if amount <= 0:
+            raise IllegalMoneyException(f'存款金額不得為負{amount}')
+
+    def deposit(self, amount: float):
+        self.amount_check(amount)
+        self.balance += amount
+
+    def withdraw(self, amount: float):
+        self.amount_check(amount)
+        if amount > self.balance:
+            raise InsufficientException(f'餘額不足{amount}')
+        else:
+            self.balance -= amount
+
+    def __str__(self):
+        return f"Account('{self.name}', '{self.number}', {self.balance})"
+class BankException(Exception):
+  def __init__(self, message):
+    super().__init__(message)
+
+class IllegalMoneyException(BankException):
+  def __init__(self, message):
+    super().__init__(message)
+
+class InsufficientException(BankException):
+  def __init__(self, message):
+    super().__init__(message)
+a=Account('mike', '123',1000)
+a.withdraw(2000)
+a.withdraw(-2000)
+a.deposit(-100)
