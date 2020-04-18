@@ -164,10 +164,11 @@ class Suppress:
   def __init__(self, ex_type):
     self.ex_type = ex_type
   def __enter__(self):
-    yield
+    return self
   def __exit__(self, exc_type,exc_value, traceback):
     if exc_type is self.ex_type:
       return True
+    return False
 
 with Suppress(ZeroDivisionError):
   a=9/0
