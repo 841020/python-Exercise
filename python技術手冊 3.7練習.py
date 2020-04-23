@@ -181,3 +181,16 @@ output = []
 for c in words:
   if c == c[::-1]:
     output.append(c)
+    
+#第十章
+#10.2
+import xml.etree.ElementTree as ET
+
+def dict_to_xml(root, kwargs):
+  user = ET.Element(root)
+  for key, value in kwargs.items():
+    key = ET.Element(key)
+    key.text = str(value)
+    user.append(key)
+  return ET.tostring(user).decode()
+dict_to_xml('user', {'age':40, 'name':'Justin'})
