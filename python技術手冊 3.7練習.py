@@ -1,9 +1,12 @@
-# 第三章練習
-# 3.1
+from functools import wraps
 import xml.etree.ElementTree as ET
 from functools import total_ordering
 import random
 import sys
+
+# 第三章練習
+# 3.1
+
 str1 = sys.argv[1:]
 print('有{}個不重複字串:{}'.format(len(set(str1)), set(str1)))
 # 3.2
@@ -197,6 +200,91 @@ class Suppress:
 
 with Suppress(ZeroDivisionError):
     a = 9/0
+# 7.3
+
+
+class _GeneratorContextManager:
+    def __init__(self, func, args, kwds):
+        self.gen = func(*args, **kwds)
+        self.func, self.args, self.kwds = func, args, kwds
+
+    def __enter__(self):
+
+        try:
+            return next(self.gen)
+        except StopIteration:
+            raise RuntimeError("generator didn't yield") from None
+
+    def __exit__(self, type, value, traceback):
+        if type is None:
+            try:
+                next(self.gen)
+            except StopIteration:
+                return False
+            else:
+                raise RuntimeError("generator didn't stop")
+        else:
+            if value is None:
+
+                value = type()
+            try:
+                self.gen.throw(type, value, traceback)
+            except StopIteration as exc:
+
+                return exc is not value
+            except RuntimeError as exc:
+
+                if exc is value:
+                    return False
+
+                if type is StopIteration and exc.__cause__ is value:
+                    return False
+                raise
+            except:
+
+                if sys.exc_info()[1] is value:
+                    return False
+                raise
+            raise RuntimeError("generator didn't stop after throw()")
+
+
+def contextmanager(func):
+    @wraps(func)
+    def helper(*args, **kwds):
+        return _GeneratorContextManager(func, args, kwds)
+    return helper
+
+
+def suppress(ex_type):
+    try:
+        yield
+    except ex_type:
+        pass
+
+
+suppress = contextmanager(suppress)
+with suppress(ZeroDivisionError):
+    9/0
+
+
+class Some:
+    def __init__(self, name):
+        self.name = name
+
+    def close(self):
+        print(self.name, 'is closed')
+
+
+def closing(thing):
+    try:
+        yield thing
+    finally:
+        thing.close()
+
+
+closing = contextmanager(closing)
+with closing(Some('Resource')) as res:
+    print(res.name)
 
 # 第九章練習
 
