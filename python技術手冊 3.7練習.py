@@ -200,7 +200,7 @@ class Suppress:
 
 with Suppress(ZeroDivisionError):
     a = 9/0
-# 7.3
+# 7.3實作contextmanager
 
 
 class _GeneratorContextManager:
