@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 from functools import total_ordering
 import random
 import sys
+import urllib.request
 
 # 第三章練習
 # 3.1
@@ -285,8 +286,32 @@ def closing(thing):
 closing = contextmanager(closing)
 with closing(Some('Resource')) as res:
     print(res.name)
+# 第八章練習
+# 8.1
 
+
+def dump(in_f, out_f):
+    with in_f as input_f, out_f as output:
+        output.write(input_f.read())
+# 8.2
+
+
+def dump(in_f, out_f):
+    with in_f as input_f, out_f as output:
+        try:
+            raise ValueError('fuck you')
+            output.write(input_f.read())
+        except Exception as f:
+            import traceback
+            traceback.print_exc(file=open('exception.log', 'w+'))
+# 8.3
+
+
+def xx(input_file, output_file):
+    with open(input_file, 'r') as input_f, open(output_file, 'w', encoding='utf8') as output:
+        output.write(input_f.read())
 # 第九章練習
+
 
 # 9.2
 words = ['RADAR', 'WARTER START', 'MILK KLIM', 'RESERVERED', 'IWI', 'ABBA']
