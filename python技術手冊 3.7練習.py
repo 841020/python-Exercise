@@ -311,7 +311,35 @@ def xx(input_file, output_file):
     with open(input_file, 'r') as input_f, open(output_file, 'w', encoding='utf8') as output:
         output.write(input_f.read())
 # 第九章練習
+# 9.1
 
+
+class MultiMap:
+    def __init__(self, dt_1, dt_2):
+        self.dt = dict()
+        for key, value in dt_1.items():
+            self.__insert__(key, value)
+        for key, value in dt_2.items():
+            self.__insert__(key, value)
+
+    def __repr__(self):
+        return '{}'.format(self.dt)
+
+    def __setitem__(self, key, value):
+        self.__insert__(key, value)
+
+    def __insert__(self, key, value):
+        b = self.dt.get(key)
+        if not b:
+            self.dt[key] = {value}
+        else:
+            b.add(value)
+
+
+b = MultiMap({'a': 2}, {'b': 3, 'a': 5})
+print(b)
+b['a'] = 6
+print(b)
 
 # 9.2
 words = ['RADAR', 'WARTER START', 'MILK KLIM', 'RESERVERED', 'IWI', 'ABBA']
