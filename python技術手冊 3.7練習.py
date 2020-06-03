@@ -1,3 +1,5 @@
+import sqlite3
+import pickle
 from functools import wraps
 import xml.etree.ElementTree as ET
 from functools import total_ordering
@@ -349,6 +351,47 @@ for c in words:
         output.append(c)
 
 # 第十章
+# 10.1
+
+with sqlite3.connect('db.sqlite3') as conn:
+    conn.cursor().execute('''create table message (id integer primary key autoincrement unique not null,
+            title text not null, instance text not null)''')
+conn = sqlite3.connect('db.sqlite3')
+cursor = conn.cursor()
+
+
+class DVD:
+    def __init__(self, title: str, year: int, duration: int, director: str) -> None:
+        self.title = title
+        self.year = year
+        self.duration = duration
+        self.director = director
+
+    def save(self):
+        cursor.execute('insert into message (title, instance) values (?,?)',
+                       (self.title,
+                        pickle.dumps(self)))
+        conn.commit
+
+    @ staticmethod
+    def load(filename: str) -> 'DVD':
+        cursor.execute(
+            'select instance from message where title = ?', (filename,))
+        a = cursor.fetchone()
+        return pickle.loads(a[0])
+
+    def __str__(self):
+        return repr(self)
+
+    def __repr__(self):
+        return "DVD('{0}', {1}, {2}, '{3}')".format(
+            self.title, self.year, self.duration, self.director)
+
+
+dvd1 = DVD('Birds', 2018, 8, 'Justin Lin')
+dvd1.save()
+dvd2 = DVD.load('Birds')
+print(dvd2)
 # 10.2
 
 
