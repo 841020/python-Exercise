@@ -100,9 +100,8 @@ def whats_on_the_telly(penguin=None):
 10914496
 ```
 ```python
->>> i=5
->>> b=[1,2,3]
->>> i,b[i]=0,3
->>> b
-[3, 2, 3]
+x = [0, 1]
+i = 0
+i, x[i] = 1, 2         # i is updated, then x[i] is updated
+print(x)
 ```
