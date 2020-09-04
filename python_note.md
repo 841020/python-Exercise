@@ -30,6 +30,7 @@ list dict set tuple 都可以容許不同型態存在
 
 在迭代物件時盡量不要對物件內容做修改
 建議新增一個物件去做內容的刪減
+```python
 for x in a[:]:
     if x < 0: a.remove(x)
 舉例
@@ -39,38 +40,43 @@ for item in a:
     pass
    else:
       lt.append(item)
-
-## 
-尤其要避免使用索引迭代物件時做物件內容的刪減
+```
+## 尤其要避免使用索引迭代物件時做物件內容的刪減
+```python
 a=[1,2,3,4,5]
 for i in range(5):
     a.remove(a[i])
-    
+```    
 ## finally的優先性
 finally 的操作會在回傳前先執行
 所以如果finally有return
+```python
 def foo():
     try:
         return 'try'
     finally:
         return 'finally'
-
+```
+```python
 foo()
 -->finally
-
+```
 ## 避免預設值直接賦予資料結構
+```python
 def xx(a=[]):
     pass
-
+```
+```python
 def whats_on_the_telly(penguin=None):
     if penguin is None:
         penguin = []
     penguin.append("property of the zoo")
     return penguin
-
+```
 
 ## 不要用_當變數名稱
 因為_預設為最近一次的standard output
+```python
 tax = 12.5 / 100
 price = 100.50
 price * tax
@@ -78,12 +84,13 @@ price * tax
 price + _
 >>>113.06
 round(_, 2)
-
+```
 ## 因為
+```python
 >>> a, b = 0, 1
 >>> id(a)
 10914464
 >>> a, b = b, a+b
 >>> id(a)
 10914496
-
+```
