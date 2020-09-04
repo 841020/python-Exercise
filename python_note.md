@@ -25,3 +25,22 @@ liat tuple 能直接使用*產生新的ele
 
 tuple list set dict都可用in  因為都可迭帶
 list dict set tuple 都可以容許不同型態存在
+
+
+
+在迭代物件時盡量不要對物件內容做修改
+建議新增一個物件去做內容的刪減
+for x in a[:]:
+    if x < 0: a.remove(x)
+舉例
+lt = list()
+for item in a:
+  if x<0:
+    pass
+   else:
+      lt.append(item)
+
+尤其要避免使用索引迭代物件時做物件內容的刪減
+a=[1,2,3,4,5]
+for i in range(5):
+    a.remove(a[i])
