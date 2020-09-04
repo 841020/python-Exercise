@@ -1,13 +1,13 @@
-- 為了可讀性以及維護性通常不會寫巢狀判斷
-- 可以將巢狀判斷由前面的判斷給flag狀態把巢狀判斷攤開成平面
-
 ## 減少條件判斷方法
 - 確認範圍使用set 可以使用in 或取交集/差集/聯集等
 - 需要替換值使用dict mapping
+- 為了可讀性以及維護性避免巢狀判斷
+- 可以將巢狀判斷由前面的判斷給flag狀態把巢狀判斷攤開成平面
 
 set裏面不能放set&dict&list(每一層)
 dict不能用dict&list&set做key(每一層)
 
+## coppy
 淺層拷貝 只有最外層(第1層，最上層)，不會隨之變動
 深層拷貝每一層都不會隨之變動
 
@@ -40,12 +40,13 @@ for item in a:
    else:
       lt.append(item)
 
+## 
 尤其要避免使用索引迭代物件時做物件內容的刪減
 a=[1,2,3,4,5]
 for i in range(5):
     a.remove(a[i])
     
-
+## finally的優先性
 finally 的操作會在回傳前先執行
 所以如果finally有return
 def foo():
