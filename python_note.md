@@ -44,3 +44,14 @@ for item in a:
 a=[1,2,3,4,5]
 for i in range(5):
     a.remove(a[i])
+    
+
+finally 的操作會在回傳前先執行
+所以如果finally有return
+def foo():
+    try:
+        return 'try'
+    finally:
+        return 'finally'
+
+foo()
