@@ -56,3 +56,14 @@ def foo():
         return 'finally'
 
 foo()
+-->finally
+
+## 避免預設值直接賦予資料結構
+def xx(a=[]):
+    pass
+
+def whats_on_the_telly(penguin=None):
+    if penguin is None:
+        penguin = []
+    penguin.append("property of the zoo")
+    return penguin
