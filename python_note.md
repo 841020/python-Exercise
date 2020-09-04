@@ -67,3 +67,14 @@ def whats_on_the_telly(penguin=None):
         penguin = []
     penguin.append("property of the zoo")
     return penguin
+
+
+＃ 不要用_當變數名稱
+因為_預設為最近一次的standard output
+tax = 12.5 / 100
+price = 100.50
+price * tax
+>>>113.0625
+price + _
+>>>113.06
+round(_, 2)
