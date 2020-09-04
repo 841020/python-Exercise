@@ -33,7 +33,9 @@ list dict set tuple 都可以容許不同型態存在
 ```python
 for x in a[:]:
     if x < 0: a.remove(x)
-舉例
+```
+ex
+```python
 lt = list()
 for item in a:
   if x<0:
@@ -62,10 +64,12 @@ foo()
 -->finally
 ```
 ## 避免預設值直接賦予資料結構
+ex
 ```python
 def xx(a=[]):
     pass
 ```
+
 ```python
 def whats_on_the_telly(penguin=None):
     if penguin is None:
@@ -77,15 +81,16 @@ def whats_on_the_telly(penguin=None):
 ## 不要用_當變數名稱
 因為_預設為最近一次的standard output
 ```python
-tax = 12.5 / 100
-price = 100.50
-price * tax
->>>113.0625
-price + _
->>>113.06
-round(_, 2)
+>>> tax = 12.5 / 100
+>>> price = 100.50
+>>> price * tax
+12.5625
+>>> price + _
+113.0625
+>>> round(_, 2)
+113.06
 ```
-## 因為
+## 因為產生一個新的a
 ```python
 >>> a, b = 0, 1
 >>> id(a)
