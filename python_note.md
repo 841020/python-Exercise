@@ -69,7 +69,7 @@ def whats_on_the_telly(penguin=None):
     return penguin
 
 
-＃ 不要用_當變數名稱
+## 不要用_當變數名稱
 因為_預設為最近一次的standard output
 tax = 12.5 / 100
 price = 100.50
@@ -78,3 +78,12 @@ price * tax
 price + _
 >>>113.06
 round(_, 2)
+
+## 因為
+>>> a, b = 0, 1
+>>> id(a)
+10914464
+>>> a, b = b, a+b
+>>> id(a)
+10914496
+
