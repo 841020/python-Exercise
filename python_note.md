@@ -16,9 +16,9 @@ dict不能用dict&list&set做key(每一層)
 
 list tuple 才能使用slice
 ```python
-word = 'abc'  
-word[1:2] ='b'  
-word[slice(1,2,None) = 'b'
+word = 'abc'
+word[1:2] = 'b'
+word[slice(1, 2, None) = 'b'
 ```
 list tuple能使用+直接合併項目
 liat tuple 能直接使用*產生新的ele
@@ -32,20 +32,21 @@ list dict set tuple 都可以容許不同型態存在
 建議新增一個物件去做內容的刪減
 ```python
 for x in a[:]:
-    if x < 0: a.remove(x)
+    if x < 0:
+        a.remove(x)
 ```
 ex
 ```python
 lt = list()
 for item in a:
-  if x<0:
+  if x < 0:
     pass
    else:
       lt.append(item)
 ```
 ## 尤其要避免使用索引迭代物件時做物件內容的刪減
 ```python
-a=[1,2,3,4,5]
+a = [1, 2, 3, 4, 5]
 for i in range(5):
     a.remove(a[i])
 ```    
@@ -53,15 +54,14 @@ for i in range(5):
 finally 的操作會在回傳前先執行
 所以如果finally有return
 ```python
-def foo():
-    try:
-        return 'try'
-    finally:
-        return 'finally'
-```
-```python
-foo()
--->finally
+>>> def foo():
+...     try:
+...         return 'try'
+...     finally:
+...         return 'finally'
+... 
+>>> foo()
+'finally'
 ```
 ## 避免預設值直接賦予資料結構
 ex
