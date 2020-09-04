@@ -99,3 +99,8 @@ def whats_on_the_telly(penguin=None):
 >>> id(a)
 10914496
 ```
+>>> i=5
+>>> b=[1,2,3]
+>>> i,b[i]=0,3
+>>> b
+[3, 2, 3]
