@@ -57,6 +57,15 @@ a = [1, 2, 3, 4, 5]
 for i in range(5):
     a.remove(a[i])
 ```
+可以對copy 物件迭代在對原物件操作 或是相反
+```python
+>>> for w in words[:]:  # Loop over a slice copy of the entire list.
+...     if len(w) > 6:
+...         words.insert(0, w)
+...
+>>> words
+['defenestrate', 'cat', 'window', 'defenestrate']
+```
 
 ## finally 的優先性
 
