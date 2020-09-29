@@ -57,7 +57,7 @@ a = [1, 2, 3, 4, 5]
 for i in range(5):
     a.remove(a[i])
 ```
-可以對copy 物件迭代在對原物件操作 或是相反
+可以對物件copy再迭代這樣就可以對原物件操作
 ```python
 >>> for w in words[:]:  # Loop over a slice copy of the entire list.
 ...     if len(w) > 6:
