@@ -8,7 +8,7 @@
 set 裏面不能放 set&dict&list(每一層)
 dict 不能用 dict&list&set 做 key(每一層)
 
-## coppy
+## copy
 
 淺層拷貝 只有最外層(第 1 層，最上層)，不會隨之變動
 深層拷貝每一層都不會隨之變動
