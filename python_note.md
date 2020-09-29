@@ -132,3 +132,15 @@ i = 0
 i, x[i] = 1, 2         # i is updated, then x[i] is updated
 print(x)
 ```
+
+#default value不要參考變數 因為原參考還在 是重新創造一個同樣名稱的變數 並不會被預設值參考
+```python
+>>> i = 5
+>>> 
+>>> def f(arg=i):
+...     print(arg)
+... 
+>>> i = 6
+>>> f()
+5
+```
