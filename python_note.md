@@ -83,7 +83,7 @@ finally 的操作會在回傳前先執行
 'finally'
 ```
 
-## 避免預設值直接賦予資料結構
+## 避免預設值直接賦予資料結構    因為default的參考物件是固定的並不會因為重新呼叫function而重新乾淨的產生預設參考 
 
 ex
 
@@ -98,6 +98,18 @@ def whats_on_the_telly(penguin=None):
         penguin = []
     penguin.append("property of the zoo")
     return penguin
+```
+
+#default value不要參考變數 因為原參考還在 是重新創造一個同樣名稱的變數 並不會被預設值參考
+```python
+>>> i = 5
+>>> 
+>>> def f(arg=i):
+...     print(arg)
+... 
+>>> i = 6
+>>> f()
+5
 ```
 
 ## 不要用_當變數名稱
@@ -131,16 +143,4 @@ x = [0, 1]
 i = 0
 i, x[i] = 1, 2         # i is updated, then x[i] is updated
 print(x)
-```
-
-#default value不要參考變數 因為原參考還在 是重新創造一個同樣名稱的變數 並不會被預設值參考
-```python
->>> i = 5
->>> 
->>> def f(arg=i):
-...     print(arg)
-... 
->>> i = 6
->>> f()
-5
 ```
