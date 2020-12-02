@@ -6,6 +6,7 @@
 - 可以將巢狀判斷由前面的判斷給 flag 狀態把巢狀判斷攤開成平面
 - set 裏面不能放 set&dict&list(每一層)
 - dict 不能用 dict&list&set 做 key(每一層)
+- 
 
 ## copy
 
