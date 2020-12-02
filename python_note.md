@@ -1,11 +1,11 @@
+- set 裏面不能放 set&dict&list(每一層)
+- dict 不能用 dict&list&set 做 key(每一層)
 ## 減少條件判斷方法
 
 - 確認範圍使用 set 可以使用 in 或取交集/差集/聯集等
 - 需要替換值使用 dict mapping
 - 為了可讀性以及維護性避免巢狀判斷
 - 可以將巢狀判斷由前面的判斷給 flag 狀態把巢狀判斷攤開成平面
-- set 裏面不能放 set&dict&list(每一層)
-- dict 不能用 dict&list&set 做 key(每一層)
 - 將預設值寫在判斷式前，當符合判斷式條件時才修改值
 
 ## copy
