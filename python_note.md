@@ -1,6 +1,7 @@
 - set 裏面不能放 set&dict&list(每一層)
 - dict 不能用 dict&list&set 做 key(每一層)
 - 需要替換值使用 dict mapping
+
 ## 減少條件判斷方法
 
 - 確認範圍使用 set 可以使用 in 或取交集/差集/聯集等
@@ -53,7 +54,9 @@ a = [1, 2, 3, 4, 5]
 for i in range(5):
     a.remove(a[i])
 ```
-# 可以對物件copy再迭代這樣就可以對原物件操作
+
+# 可以對物件 copy 再迭代這樣就可以對原物件操作
+
 ```python
 >>> for w in words[:]:  # Loop over a slice copy of the entire list.
 ...     if len(w) > 6:
@@ -79,7 +82,7 @@ for i in range(5):
 'finally'
 ```
 
-## 避免預設值直接賦予資料結構    因為default的參考物件是固定的並不會因為重新呼叫function而重新乾淨的產生預設參考 
+# function 預設參數避免直接賦予資料結構(list, dict, set, tuple),因為 function 預設參數記憶體是固定的不會因為 function 結束而釋放資源
 
 ex
 
@@ -96,21 +99,39 @@ def whats_on_the_telly(penguin=None):
     return penguin
 ```
 
-# default value不要參考變數 因為原參考還在 是重新創造一個同樣名稱的變數 並不會被預設值參考
+## 可以利用 func 特性在 fun 中簡單實現 cache
+
+因為 cache=[]會在記憶體中要一塊空間<br>
+而且不會因為 fun 結束而釋放資源
+
+```python
+>>> def foo(cache=[]):
+...     if not cache:
+...             cache.append(123)
+...     print(cache)
+...
+>>> foo(789)
+789
+>>> foo()
+[123]
+```
+
+## default value 不要參考變數 因為原參考還在 是重新創造一個同樣名稱的變數 並不會被預設值參考
+
 ```python
 >>> i = 5
->>> 
+>>>
 >>> def f(arg=i):
 ...     print(arg)
-... 
+...
 >>> i = 6
 >>> f()
 5
 ```
 
-## 不要用_當變數名稱
+## 不要用\_當變數名稱
 
-- 因為_預設為最近一次的 standard output
+- 因為\_預設為最近一次的 standard output
 
 ```python
 >>> tax = 12.5 / 100
@@ -140,20 +161,3 @@ i = 0
 i, x[i] = 1, 2         # i is updated, then x[i] is updated
 print(x)
 ```
-
-## 可以利用func特性在fun中簡單實現cache
-因為cache=[]會在記憶體中要一塊空間<br>
-而且不會因為fun結束而釋放資源
-```python
->>> def foo(cache=[]):
-...     if not cache:
-...             cache.append(123)
-...     print(cache)
-... 
->>> foo(789)
-789
->>> foo()
-[123]
-```
-
-
