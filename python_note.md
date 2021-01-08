@@ -142,7 +142,7 @@ print(x)
 ```
 
 ## 可以利用func特性在fun中簡單實現cache
-因為cache=[]會在記憶體中要一塊空間
+因為cache=[]會在記憶體中要一塊空間<br>
 而且不會因為fun結束而釋放資源
 ```python
 >>> def foo(cache=[]):
