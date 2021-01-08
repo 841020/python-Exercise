@@ -83,8 +83,7 @@ for i in range(5):
 ```
 
 # function 預設參數避免直接賦予資料結構(list, dict, set, tuple),因為 function 預設參數記憶體是固定的不會因為 function 結束而釋放資源
-
-ex
+[Reference](https://docs.python.org/3/tutorial/controlflow.html#default-argument-values)
 
 ```python
 def xx(a=[]):
