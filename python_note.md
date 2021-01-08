@@ -140,3 +140,18 @@ i = 0
 i, x[i] = 1, 2         # i is updated, then x[i] is updated
 print(x)
 ```
+
+可以利用func特性在fun中簡單實現cache
+>>> def foo(cache=[]):
+...     if not cache:
+...             cache.append(123)
+...     print(cache)
+... 
+>>> foo(789)
+789
+>>> foo()
+[123]
+
+
+因為cache=[]會在記憶體中要一塊空間
+而且不會因為fun結束而釋放資源
