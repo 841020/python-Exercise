@@ -1,7 +1,6 @@
 # random pivot quick sort (in-place)
 import random
 
-
 def parser(lt):
     if len(lt) < 2:
         return lt
@@ -10,13 +9,14 @@ def parser(lt):
     small_lt = list()
     bigger_lt = list()
     for index in range(len(lt)):
+        if index != pivot_index:
+            continue
         item = lt[index]
-        if item >= pivot and index != pivot_index:
+        if item >= pivot:
             bigger_lt.append(item)
-        elif item < pivot and index != pivot_index:
+        elif item < pivot:
             small_lt.append(item)
-    return parser(small_lt) + [pivot] + parser(bigger_lt)
-
-
-nums = [6, 5, 3, 216, 7, 9]
+    full_lt = parser(small_lt) + [pivot]
+    full_lt += parser(bigger_lt)
+    return full_lt
 nums[:] = parser(nums)
